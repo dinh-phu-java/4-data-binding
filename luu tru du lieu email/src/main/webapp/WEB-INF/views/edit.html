@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Page</title>
+</head>
+<body>
+<h1 th:text="${message}"></h1>
+
+
+<form th:action="@{/email/edit}" th:object="${editEmail}" method="POST">
+    <input type="hidden" th:field="*{id}">
+    Language:
+    <input type="text" th:field="*{language}" />
+    <br/> PageSize:
+<!--    <input type="text" th:field="*{pageSize}" />-->
+    <input type="text" th:field="*{pageSize}"
+           th:class="${#fields.hasErrors('pageSize')}? fieldError" />
+    <br/> Filter:
+    <input type="checkbox" th:field="*{filter}" />
+    <br/> Signature:
+    <input type="text" th:field="*{signature}" />
+    <br/>
+
+    <input type="submit" value="Submit" />
+
+</form>
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home Page</title>
+</head>
+<body>
+
+    <table border="1">
+        <tr>
+            <th>Language</th>
+            <th>Page Size</th>
+            <th>Filter</th>
+            <th>Signature</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+        <tr th:each="email : ${emails}">
+            <td th:text="${email.language}"></td>
+            <td th:text="${email.pageSize}"></td>
+            <td th:text="${email.filter}"></td>
+            <td th:text="${email.signature}"></td>
+            <td ><a th:href="@{/email/edit/{id}(id=${email.id})}">Edit</a></td>
+            <td ><a th:href="@{/email/delete/{id}(id=${email.id})}">Delete</a></td>
+        </tr>
+    </table>
+
+</body>
+</html>
